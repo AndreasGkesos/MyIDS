@@ -1,0 +1,53 @@
+<div style="text-align:center">
+  <h1>
+    Sample Angular Client
+  </h1>
+</div>
+<div>
+  <button (click)='onLogin()'>Login</button>
+  <!-- <button (click)='onCallAPI()'>Call API</button> -->
+  <button (click)='onRenewToken()'>Renew Token</button>
+  <button (click)='onLogout()'>Logout</button>
+</div>
+<pre>{{currentUserJson}}</pre>
+<div>
+  <h2>Messages</h2>
+  <ul>
+    <li *ngFor='let msg of messages'>{{msg}}</li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
+<hr>
+<div>
+  <form [formGroup]="peopleForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getStarwarsPeople()'>Get People</button>
+  </form>
+  <div *ngIf="peopleName">
+    {{peopleName}}
+  </div>
+</div>
+<div>
+  <form [formGroup]="speciesForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getStarwarsSpecies()'>Get Species</button>
+  </form>
+  <div *ngIf="speciesName">
+    {{speciesName}}
+  </div>
+</div>
+<div>
+  <form [formGroup]="starshipForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getStarwarsStarships()'>Get Starships</button>
+  </form>
+  <div *ngIf="starshipsName">
+    {{starshipsName}}
+  </div>
+</div>
+<div>
+  <hr>
+  <div *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+</div>

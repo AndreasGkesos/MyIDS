@@ -1,0 +1,52 @@
+<div style="text-align:center">
+  <h1>
+    Sample Angular Client
+  </h1>
+</div>
+<div>
+  <button (click)='onLogin()'>Login</button>
+  <button (click)='onRenewToken()'>Renew Token</button>
+  <button (click)='onLogout()'>Logout</button>
+</div>
+<pre>{{currentUserJson}}</pre>
+<div>
+  <h2>Messages</h2>
+  <ul>
+    <li *ngFor='let msg of messages'>{{msg}}</li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
+<hr>
+<div>
+  <form [formGroup]="itemForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getItem()'>Get Items</button>
+  </form>
+  <div *ngIf="itemName">
+    {{itemName}}
+  </div>
+</div>
+<div>
+  <form [formGroup]="locationForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getLocation()'>Get Locations</button>
+  </form>
+  <div *ngIf="locationName">
+    {{locationName}}
+  </div>
+</div>
+<div>
+  <form [formGroup]="pokemonForm">
+    <input type="text" name="id" formControlName="id">
+    <button (click)='getPokemon()'>Get Pokemon</button>
+  </form>
+  <div *ngIf="pokemonName">
+    {{pokemonName}}
+  </div>
+</div>
+<div>
+  <hr>
+  <div *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+</div>
